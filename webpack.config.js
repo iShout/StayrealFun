@@ -34,7 +34,6 @@ module.exports = {
     ],
   },
   plugins: [
-    //添加template参数，指定输出目录，会显示无法resolve这个目录
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./index.html"),
     }),
