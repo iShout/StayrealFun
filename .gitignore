@@ -1,0 +1,12 @@
+#忽略.DS_Store文件
+.DS_Store
+
+# 忽略 node_modules 目录
+node_modules/
+
+#忽略所有.log文件
+*.log
+
+#忽略dist文件
+dist/
+yarn.lock
