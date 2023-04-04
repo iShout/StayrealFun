@@ -1,0 +1,27 @@
+.menu {
+  @padding-var: 88px;
+  width: calc(100% - @padding-var * 2);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 @padding-var;
+  .list-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .list-item {
+      font-size: 16px;
+      text-align: center;
+      line-height: 40px;
+      width: 100px;
+      height: 40px;
+      border-radius: 12px;
+      border: 2px solid rgba(13, 183, 96,0);
+      cursor: pointer;
+      &:hover {
+        border-radius: 12px;
+        border: 2px solid #1890FF;
+      }
+    }
+  }
+}

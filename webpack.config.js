@@ -31,6 +31,15 @@ module.exports = {
           filename: "assets/img/[name].[hash:6][ext]",
         },
       },
+      //处理less文件
+      {
+        test:/\.(less|css)$/,
+        use:[
+          'style-loader',
+          'css-loader',
+          'less-loader'
+        ]
+      }
     ],
   },
   plugins: [
