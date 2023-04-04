@@ -5,6 +5,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0 @padding-var;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   .list-container {
     display: flex;
     justify-content: space-between;
@@ -16,11 +18,11 @@
       width: 100px;
       height: 40px;
       border-radius: 12px;
-      border: 2px solid rgba(13, 183, 96,0);
+      border: 2px solid rgba(13, 183, 96, 0);
       cursor: pointer;
       &:hover {
         border-radius: 12px;
-        border: 2px solid #1890FF;
+        border: 2px solid #1890ff;
       }
     }
   }

@@ -16,7 +16,7 @@ const DocImages = () => {
 // 展示文档入口的section
 const DocSection = () => {
   return (
-    <div>
+    <div className="section-container">
       <div className="animate-element">
         <DocImages></DocImages>
       </div>

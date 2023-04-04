@@ -2,6 +2,8 @@ import React from "react";
 
 import Menu from "../components/Menu/Menu";
 import DocSection from './sections/docSection/DocSection'
+import LinkSection from './sections/linkSection/LinkSection'
+import FooterSection from './sections/footerSection/FooterSection'
 
 import './styles/home.less'
 const menuData = [
@@ -25,6 +27,8 @@ const Home = () => {
       </div>
       <div className="content">
         <DocSection></DocSection>
+        <LinkSection></LinkSection>
+        <FooterSection></FooterSection>
       </div>
     </div>
   )
