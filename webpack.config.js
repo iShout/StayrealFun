@@ -33,7 +33,7 @@ module.exports = {
       },
       //处理less文件
       {
-        test:/\.(less|css)$/,
+        test:/\.(less|css)$/i,
         use:[
           'style-loader',
           'css-loader',
