@@ -1,11 +1,12 @@
 import React from "react";
 
 import Menu from "../components/Menu/Menu";
-import DocSection from './sections/docSection/DocSection'
+import DocSection from './sections/docSection/DocSection.js'
 import LinkSection from './sections/linkSection/LinkSection'
-import FooterSection from './sections/footerSection/FooterSection'
+import FooterSection from './sections/footerSection/FooterSection.js'
 
 import './styles/home.less'
+// 菜单数据
 const menuData = [
   {
     label: '主页',
@@ -18,7 +19,7 @@ const menuData = [
     id: 'links'
   }
 ]
-
+// 主页
 const Home = () => {
   return (
     <div className="home">
