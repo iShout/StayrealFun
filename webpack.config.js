@@ -31,12 +31,28 @@ module.exports = {
           filename: "assets/img/[name].[hash:6][ext]",
         },
       },
-      //处理less文件
+      //处理css文件
       {
-        test:/\.(less|css)$/i,
+        test:/\.css$/i,
         use:[
           'style-loader',
           'css-loader',
+        ]
+      },
+      //处理less实现css modules
+      {
+        test:/\.less$/i,
+        include: path.resolve('./src'),
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]-[hash:5]'
+              }
+            }
+          },
           'less-loader'
         ]
       }
