@@ -5,7 +5,7 @@ import DocSection from './sections/docSection/DocSection.js'
 import LinkSection from './sections/linkSection/LinkSection'
 import FooterSection from './sections/footerSection/FooterSection.js'
 
-import './styles/home.less'
+import styles from './styles/home.less'
 // 菜单数据
 const menuData = [
   {
@@ -22,11 +22,11 @@ const menuData = [
 // 主页
 const Home = () => {
   return (
-    <div className="home">
-      <div className="menu-bar">
+    <div className={styles.home}>
+      <div className={styles.menuBar}>
         <Menu menuList={menuData}></Menu>
       </div>
-      <div className="content">
+      <div className={styles.content}>
         <DocSection></DocSection>
         <LinkSection></LinkSection>
         <FooterSection></FooterSection>

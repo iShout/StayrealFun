@@ -2,13 +2,13 @@ import React from "react";
 
 import Logo from "./Logo";
 
-import './styles/menu.less'
+import styles from  './styles/menu.less'
 
 const MenuListContainer = (props)=>{
   const {list} = props
   return (
-    <div className="list-container">
-      {list.map(item => <div key={item.id} className="list-item">{item.label}</div>)}
+    <div className={styles.listContainer}>
+      {list.map(item => <div key={item.id} className={styles.listItem}>{item.label}</div>)}
     </div>
   )
 }
@@ -16,7 +16,7 @@ const MenuListContainer = (props)=>{
 const Menu = (props)=>{
   const {menuList} = props
   return(
-    <div className="menu">
+    <div className={styles.menu}>
       <Logo></Logo>
       <MenuListContainer list={menuList}></MenuListContainer>
     </div>
