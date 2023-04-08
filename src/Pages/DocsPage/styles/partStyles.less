@@ -1,0 +1,27 @@
+.classify-item {
+  @paddingHorz:12px;
+  width: calc(100% - @paddingHorz * 2);
+  height: 46px;
+  padding: 0 @paddingHorz;
+  color: #000;
+  text-align: left;
+  line-height: 46px;
+  background-color: #fff;
+  cursor: pointer;
+  &:hover {
+    background-color: #f2f3f5;
+    color: #1890ff;
+  }
+}
+.classify-item-clicked {
+  background-color: #eaf2ff !important;
+  color: #1890ff !important;
+}
+
+.doc-item{
+  @paddingHorz:14px;
+  @paddingVert:12px;
+  width: calc(100% - @paddingHorz * 2);
+  height: calc(150px - @paddingVert * 2);
+  padding: @paddingVert @paddingHorz;
+}

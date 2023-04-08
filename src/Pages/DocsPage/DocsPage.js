@@ -1,6 +1,10 @@
 import React from 'react'
 
 import Header from '../../components/Header/Header.js'
+import ClassifyItems from './parts/ClassifyItems.js'
+import DocsItems from './parts/DocsItems.js'
+
+import { classifyList } from './mockdata.js'
 
 import styles from './styles/style.less'
 
@@ -9,9 +13,10 @@ const DocsMain = () => {
   return (
     <div className={styles['docs-container']}>
       <div className={styles['parent-list']}>
+        <ClassifyItems childList={classifyList} />
       </div>
       <div className={styles['docs-list']}>
-        <div style={{width:'100%',height:'150px',backgroundColor:'azure'}}></div>
+       <DocsItems />
       </div>
     </div>
   )
