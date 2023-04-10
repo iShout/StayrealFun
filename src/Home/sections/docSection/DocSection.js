@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './styles.less'
 import { Button } from 'antd'
 
-const docImage = require('../../../assets/images/doc-image.png')
+import docImage from 'Images/doc-image.png'
 
 //DocSection的动态图像组件
 const DocImages = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Menu from "../components/Menu/Menu";
+import Menu from "Components/Menu/Menu";
 import DocSection from './sections/docSection/DocSection.js'
 import LinkSection from './sections/linkSection/LinkSection'
 import FooterSection from './sections/footerSection/FooterSection.js'

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from './styles/logo.less'
 
-const avator = require('../../assets/images/lanyangyang.JPG')
+import avator from 'Images/lanyangyang.JPG'
 const classNames = require('classnames')
 
 const Avator = (props) => {
