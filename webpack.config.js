@@ -1,3 +1,5 @@
+const webpack = require("webpack");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const path = require("path");
@@ -62,7 +64,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./index.html"),
     }),
+    //定义项目全局变量
+    new webpack.DefinePlugin({
+      _BackUrl:JSON.stringify('http://127.0.0.1:3000')
+    })
   ],
+  resolve:{
+    alias:{
+      Components: path.resolve(__dirname,'./src/components'),
+      Images: path.resolve(__dirname,'./src/assets/images')
+    },
+  },
   devServer: {
     static: {
       publicPath: "/",
