@@ -1,11 +1,52 @@
 import React, { useState, useCallback, useContext, useEffect } from 'react'
 import DraftHeader from './parts/DraftHeader'
-import MDEditor from '@uiw/react-md-editor';
-import { debounce } from '../../apis/tools/index'
-import { observerContext } from 'Apis/tools/context';
+import gfm from '@bytemd/plugin-gfm'
+import { Editor, Viewer } from '@bytemd/react'
+
+
+import { debounce, getDraft } from '../../apis/tools/index'
+import { observerContext, createId, addDraft } from 'Apis/tools/index.js';
 import { EditState } from 'Apis/patterns/index.js'
 
-import styles from './styles/styles.less'
+import 'bytemd/dist/index.css'
+import './styles/overwrite.css'
+
+//获取当前草稿的文档id
+const getDocId = (function () {
+  let docId = null
+  return function () {
+    if (docId) {
+      return docId
+    }
+    return docId = createId()
+  }
+}())
+//editor的插件
+const editorPlugins = [
+  gfm(),
+  // Add more plugins here
+]
+
+// 使用闭包存储当前正在编辑的draft
+const draft = (function () {
+  const draft = {
+    id: getDocId(),
+    title: "",
+    content: "",
+  }
+  return {
+    setTitle(title) {
+      draft.title = title
+    },
+    setContent(content) {
+      draft.content = content
+    },
+    getDraft() {
+      return draft
+    }
+  }
+}())
+
 
 const Draft = () => {
   //Draft页面编写文档时的保存状态
@@ -33,31 +74,40 @@ const Draft = () => {
   //在组件装载完成后 初始化编辑状态，订阅nextEditState事件
   useEffect(() => {
     editState = initEditState()
-    ObserverEvent.subscribe('nextEditState', () => {
+    ObserverEvent.subscribe('nextEditState', (draft) => {
       editState.curState.nextState(setTyping)
+      addDraft(draft).then(
+        (res) => {
+          editState.curState.nextState(setTyping)
+        }
+      )
     })
   }, [])
 
   //在编辑器的onChange触发时，对回调函数进行防抖处理，优化性能
-  const handleTyping = debounce(function () {
-    ObserverEvent.notice('nextEditState')
+  const savingDraft = debounce(function () {
+    ObserverEvent.notice('nextEditState',draft.getDraft())
   })
   const handleEditorChange = useCallback(function (e) {
     setContent(e);
-    handleTyping();
+    draft.setContent(e)
+    savingDraft();
   }, []);
 
 
   return (
     <>
-      <DraftHeader {...status} />
-      <div className={styles['editor-container']}>
-        <MDEditor
-          value={editContent}
-          onChange={handleEditorChange}
-          height="100%"
-        />
-      </div>
+      <DraftHeader {...status}
+        onInputChange={(e) => {
+          const value = e.target.value
+          draft.setTitle(value)
+          savingDraft()
+        }} />
+      <Editor
+        value={editContent}
+        plugins={editorPlugins}
+        onChange={handleEditorChange}
+      />
     </>
   )
 }
