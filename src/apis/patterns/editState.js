@@ -1,3 +1,10 @@
+// 文本值
+const Text = {
+  initial: '编写的文档将自动保存',
+  isSaving: '正在保存...',
+  saved: '保存成功'
+}
+
 // markdown编辑器的编辑状态
 class EditState {
   constructor() {
@@ -14,7 +21,7 @@ class EditState {
     if (!fn || typeof fn !== 'function') {
       throw new Error("请传入useState控制变量的函数");
     }
-    const stateValue = '编写的文档将自动保存'
+    const stateValue = Text.initial
     fn.call(this, stateValue)
     this.curState = this.initialState
   }
@@ -41,7 +48,7 @@ class InitState extends EmptyState {
     if (!fn || typeof fn !== 'function') {
       throw new Error("请传入useState控制变量的函数");
     }
-    const nextValue = '正在保存'
+    const nextValue = Text.isSaving
     fn.call(this, nextValue)
     this.state.setState(this.state.saving)
   }
@@ -56,7 +63,7 @@ class Saving extends EmptyState {
     if (!fn || typeof fn !== 'function') {
       throw new Error("请传入useState控制变量的函数");
     }
-    const nextValue = '保存成功'
+    const nextValue = Text.saved
     fn.call(this, nextValue)
     this.state.setState(this.state.saveDone)
   }
@@ -71,7 +78,7 @@ class SaveDone extends EmptyState {
     if (!fn || typeof fn !== 'function') {
       throw new Error("请传入useState控制变量的函数");
     }
-    const nextValue = '正在保存'
+    const nextValue = Text.isSaving
     fn.call(this, nextValue)
     this.state.setState(this.state.saving)
   }
