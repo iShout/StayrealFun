@@ -1,4 +1,4 @@
-const debounce = function (func, wait = 1000) {
+const debounce = function (func, wait = 300) {
   let timer = null;
   return function (args) {
     const self = this || window;
