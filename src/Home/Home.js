@@ -2,7 +2,7 @@ import React from "react";
 
 import Menu from "Components/Menu/Menu";
 import DocSection from './sections/docSection/DocSection.js'
-import LinkSection from './sections/linkSection/LinkSection'
+import LinkSection from './sections/linkSection/LinkSection.js'
 import FooterSection from './sections/footerSection/FooterSection.js'
 
 import styles from './styles/home.less'

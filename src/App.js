@@ -1,9 +1,9 @@
 import React from "react";
 
-import Home from './Home/Home.js'
-import DocsPage from "./Pages/DocsPage/DocsPage.js";
-import DocDetail from "./Pages/DocsPage/DocDetail.js";
-import Draft from './Pages/Draft/Draft.js'
+import Home from './home/Home.js'
+import DocsPage from "./pages/DocsPage/DocsPage.js";
+import DocDetail from "./pages/DocsPage/DocDetail.js";
+import Draft from './pages/Draft/Draft.js'
 import { ObserverEvent } from 'Apis/patterns/index.js'
 import { observerContext } from "./apis/tools/context.js";
 
@@ -19,7 +19,7 @@ const App = () => {
     <>
       <observerContext.Provider value={ObEvent}>
         <Routes>
-          <Route path='/' element={<Draft />}></Route>
+          <Route path='/' element={<Home />}></Route>
           <Route path='/docs' element={<DocsPage />}></Route>
           <Route path='/docs/:docId' element={<DocDetail />}></Route>
           <Route path='/draft/:docId' element={<Draft />}></Route>
