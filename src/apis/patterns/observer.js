@@ -26,9 +26,8 @@ class ObserverEvent {
    */
   notice(eventName, ...args) {
     const fns = this.dependList[eventName]
-console.log(fns[0]());
-
-    if (!fns || fns.length) {
+    
+    if (!fns || !fns.length) {
       return false
     }
     for (let i = 0, len = fns.length; i < len; i++) {
